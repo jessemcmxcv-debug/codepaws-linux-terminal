@@ -1,0 +1,5 @@
+# /etc/profile for the CodePaws v86 image — sourced by the login shell.
+export HOME=/root
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export PS1='\u@\h:\w\$ '
+cd "$HOME"

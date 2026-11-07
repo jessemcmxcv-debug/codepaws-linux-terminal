@@ -1,0 +1,8 @@
+# gen_init_cpio list: fallback static device nodes for the CodePaws image.
+# (devtmpfs normally populates /dev at runtime; these are belt & braces.
+# Listed as a second CONFIG_INITRAMFS_SOURCE entry next to the rootfs dir,
+# because this build sandbox forbids mknod on disk.)
+dir /dev 0755 0 0
+nod /dev/console 0600 0 0 c 5 1
+nod /dev/ttyS0 0600 0 0 c 4 64
+nod /dev/null 0666 0 0 c 1 3

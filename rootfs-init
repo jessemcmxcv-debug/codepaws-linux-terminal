@@ -1,0 +1,16 @@
+#!/bin/sh
+# CodePaws v86 image /init — PID 1 shell script (BusyBox sh).
+# Mounts the pseudo-filesystems, prints a brief welcome, signals shell
+# readiness, then hands the console over to an interactive login shell.
+/bin/mount -t devtmpfs devtmpfs /dev
+/bin/mount -t proc proc /proc
+/bin/mount -t sysfs sysfs /sys
+/bin/mount -t tmpfs tmpfs /tmp
+/bin/hostname codepaws
+export HOME=/root
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+echo "Welcome to CodePaws Linux - a REAL Linux kernel running in your browser."
+echo "Try: uname -a   ls   cat /root/README.txt"
+echo "Heads up: files vanish when the page reloads."
+echo "CODEPAWS_SHELL_READY"
+exec setsid -c sh -l
